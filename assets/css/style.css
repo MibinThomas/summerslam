@@ -562,7 +562,6 @@ textarea:focus {
     border-radius: 10px;
     bottom: -18px;
   }
-
 }
 
 /* Gallery Section */
@@ -843,4 +842,21 @@ textarea:focus {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
+}
+
+.details-section-1 {
+  width: 100%;
+  min-height: 110vh;
+  background: url('/assets/images/slam/detail-section-desk.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .details-section-1 {
+    display: none;
+  }
+
 }
