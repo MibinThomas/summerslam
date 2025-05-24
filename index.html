@@ -5,10 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Summer Slam 2025 | Padel Tournament</title>
-  <link href="./assets/icons/style.css" rel="stylesheet" />
   <link href="./assets/css/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- Toastify CSS & JS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 
 </head>
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -52,7 +56,7 @@
               <h3 class="contact-form-title">Contact Us</h3>
               <p class="contact-form-para">Interested in padel? Use the form below to get in touch.</p>
             </div>
-            <form id="contact-form">
+            <form class="contact-form">
               <div class="form-grid">
                 <div class="input-group">
                   <label for="name">Name</label>
@@ -94,7 +98,7 @@
             <h3 class="contact-form-title">Contact Us</h3>
             <p class="contact-form-para">Interested in padel? Use the form below to get in touch.</p>
           </div>
-          <form id="contact-form">
+          <form class="contact-form">
             <div class="form-grid">
               <div class="input-group">
                 <label for="name">Name</label>
@@ -211,19 +215,38 @@
     <section class="details-section-1"></section>
   </main>
 
-  <!-- Place the EmailJS submission script here -->
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
+    // EmailJS Init
+    (function () {
+      emailjs.init("UMefY0RiGBRWQYz5T");
+    })();
 
-      emailjs.sendForm('service_46ngrju', 'template_53omc4k', this)
-        .then(function (response) {
-          alert("Message sent successfully!");
-        }, function (error) {
-          alert("Failed to send. Error: " + JSON.stringify(error));
-        });
+    function showToast(message, type = "success") {
+      Toastify({
+        text: message,
+        duration: 3000,
+        gravity: "bottom",
+        position: "right",
+        backgroundColor: type === "success" ? "#096189" : "#e74c3c",
+        stopOnFocus: true
+      }).showToast();
+    }
+
+    document.querySelectorAll('.contact-form').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm('service_46ngrju', 'template_53omc4k', this)
+          .then(function (response) {
+            showToast("Message sent successfully!", "success");
+            form.reset();
+          }, function (error) {
+            showToast("Failed to send. Please try again.", "error");
+          });
+      });
     });
   </script>
+
 </body>
 
 </html>
