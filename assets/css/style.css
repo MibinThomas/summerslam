@@ -847,7 +847,7 @@ textarea:focus {
 .details-section-1 {
   width: 100%;
   min-height: 110vh;
-  background: url('/assets/images/slam/detail-section-desk.png') no-repeat center center;
+  background: url('/assets/images/slam/detail-section-desk.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -856,7 +856,9 @@ textarea:focus {
 
 @media screen and (max-width: 768px) {
   .details-section-1 {
-    display: none;
+    background: url('/assets/images/slam/details-mob.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
   }
 
 }
