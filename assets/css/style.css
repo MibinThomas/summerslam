@@ -21,6 +21,7 @@ body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: var(--black);
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -844,9 +845,13 @@ textarea:focus {
   gap: 20px;
 }
 
+.details-section-0 {
+  display: none;
+}
+
 .details-section-1 {
-  width: 100%;
-  min-height: 110vh;
+  width: 100vw;
+  min-height: 100vh;
   background: url('/assets/images/slam/detail-section-desk.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
@@ -859,6 +864,16 @@ textarea:focus {
     background: url('/assets/images/slam/details-mob.jpg') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
+  }
+
+  .details-section-0 {
+    width: 100vw;
+    min-height: 100vh;
+    background: url('/assets/images/slam/summer_slam_mobile_details.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
 }
